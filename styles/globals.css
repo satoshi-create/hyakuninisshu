@@ -1,26 +1,43 @@
-html,
-body {
-  padding: 0;
+*,
+::after,
+::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+:root {
+  --clr-black: rgb(5, 5, 5);
+  --clr-grey: rgb(114 114 114);
+  --clr-white: #fff;
+  --clr-primary-02: rgba(117, 159, 238, 0.3);
+  --clr-accent-02: #ff8c77;
+  --clr-green-01: #54896a;
+  --text-size: calc(16px + (35 - 16) * ((100vh - 375px) / (1080 - 375)));
+  --title-size: calc(20px + (35 - 20) * ((100vh - 375px) / (1080 - 375)));
+  --mokuji-size: calc(14px + (20 - 14) * ((100vh - 375px) / (1080 - 375)));
+  --title-font: "Kaisei Decol", serif;
+  --text-font: "Zen Kurenaido", sans-serif;
+  --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --shadowR: -10px 15px 10px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s linear;
+  --mokuji-size: calc(14px + (20 - 14) * ((100vh - 375px) / (1080 - 375)));
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: var(--clr-black);
+  cursor: pointer;
+}
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr min(calc(100vw - (5vw * 2)), 1200px) 1fr;
+  margin: 4rem 0;
 }
 
-* {
-  box-sizing: border-box;
+.section-grid > * {
+  grid-column: 2;
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.section-center {
+  place-items: center;
 }

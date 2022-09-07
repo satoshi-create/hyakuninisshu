@@ -1,0 +1,106 @@
+.conteiner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  place-content: center;
+}
+
+.card {
+  width: 254px;
+  height: 354px;
+  /* height: calc(100vh / 2); */
+  /* width: calc(100vw - (5vw * 2)); */
+  transition: var(--transition);
+  /* background: var(--clr-green-01); */
+  border: 10px solid var(--clr-green-01);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: repeat(6, 39px);
+  grid-template-rows: repeat(4, auto);
+  /* background-color: var(--clr-accent-02); */
+  cursor: pointer;
+}
+
+.card > p {
+  writing-mode: vertical-rl;
+  font-size: 36px;
+  font-family: var(--text-font);
+}
+
+.author {
+  font-size: 36px;
+  font-family: var(--title-font);
+  writing-mode: vertical-rl;
+}
+
+.card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+}
+
+/* 紀貫之 */
+
+.kinotomonori p:first-child {
+  grid-column: 4;
+  grid-row: 1;
+  justify-self: center;
+  align-self: center;
+}
+.kinotomonori > p:nth-child(2) {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  justify-self: center;
+  align-self: center;
+}
+.kinotomonori > p:nth-child(3) {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  justify-self: center;
+  align-self: center;
+}
+.kinotomonori > p:nth-child(4) {
+  grid-column: 4;
+  grid-row: 3 / span 2;
+  justify-self: center;
+  align-self: center;
+}
+.kinotomonori > p:nth-child(5) {
+  grid-column: 3;
+  grid-row: 3 / span 2;
+  justify-self: center;
+  align-self: center;
+}
+.kinotomonori > p:nth-child(6) {
+  grid-column: 2;
+  grid-row: 4;
+  justify-self: center;
+  align-self: center;
+}
+.author {
+  grid-column: 5 / span 2;
+  grid-row: 2 / span 3;
+  align-self: center;
+  justify-self: center;
+}
+
+
+/* 中納言　家持 */
+.cyuunagonyakamochi {
+  background-color: antiquewhite;
+}
+.cyuunagonyakamochi p:first-child {
+  grid-column: 4;
+  grid-row: 1/-1;
+}
+.cyuunagonyakamochi p:nth-child(2) {
+  grid-column: 3;
+  grid-row: 1/-1;
+  align-self: center;
+}
+.cyuunagonyakamochi .author {
+  grid-column: 5 / span 2;
+  grid-row: 2 / span 3;
+  align-self: center;
+  justify-self: center;
+}
