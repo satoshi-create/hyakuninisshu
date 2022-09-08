@@ -1,0 +1,36 @@
+.conteiner {
+  /* display: flex;
+  justify-content: space-around; */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.conteiner > * {
+  writing-mode: vertical-rl;
+}
+.conteiner > p {
+  font-family: var(--text-font);
+  font-size: 36px;
+}
+.conteiner > img {
+  width: 170px;
+}
+.fudekami.cyuunagonyakamochi {
+  grid-row: 1;
+  grid-column: 3 / span 3;
+}
+.fudesimo.cyuunagonyakamochi {
+  grid-row: 2;
+  grid-column: 1 / span 3;
+  justify-self: center;
+}
+.kami.cyuunagonyakamochi {
+  grid-column: 4 / span 2;
+  grid-row: 2;
+  justify-self: center;
+}
+.simo.cyuunagonyakamochi {
+  grid-column: 4 ;
+  grid-row: 2;
+  justify-self: flex-start;
+  align-self: center;
+}
