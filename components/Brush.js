@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/Brush.module.css";
 import hyakuninisshu from "../libs/data";
+import Image from "next/image";
 
 const Brush = () => {
   return (
@@ -10,20 +11,33 @@ const Brush = () => {
           const { author, authoren, fudekami, fudesimo, kami, simo } = item;
           return (
             <React.Fragment key={index}>
-              {fudekami && (
-                <img
+              <figure className={`${styles[`${authoren}`]} ${styles.fudekami}`}>
+                <Image
                   src={fudekami}
-                  alt={author}
-                  className={`${styles[`${authoren}`]} ${styles.fudekami}`}
+                  layout="responsive"
+                  width={343}
+                  height={874}
+                  alt={authoren}
+                  // sizes="(min-width:786px) 80vw,100vw "
+                  priority
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkmF/vAwADMQFs4YXxygAAAABJRU5ErkJggg=="
                 />
-              )}
-              {fudekami && (
-                <img
+              </figure>
+              <figure className={`${styles[`${authoren}`]} ${styles.fudesimo}`}>
+                <Image
                   src={fudesimo}
-                  alt={author}
-                  className={`${styles[`${authoren}`]} ${styles.fudesimo}`}
+                  layout="responsive"
+                  width={255}
+                  height={1350}
+                  alt={authoren}
+                  // sizes="(min-width:786px) 80vw,100vw "
+                  priority
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkmF/vAwADMQFs4YXxygAAAABJRU5ErkJggg=="
                 />
-              )}
+              </figure>
+
               <p className={`${styles[`${authoren}`]} ${styles.kami}`}>
                 {kami.join("")}
               </p>

@@ -7,8 +7,8 @@ const index = () => {
   return (
     <div>
       <KarutaConteiner />
-      <Tategaki />
-      <Brush/>
+      {/* <Tategaki /> */}
+      {/* <Brush/> */}
     </div>
   );
 };
