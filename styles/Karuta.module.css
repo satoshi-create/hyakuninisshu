@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   gap: 2rem;
 }
 
@@ -26,6 +26,7 @@
   grid-template-rows: repeat(4, auto); */
   /* background-color: var(--clr-accent-02); */
   cursor: pointer;
+  position: relative;
 }
 
 .card > p {
@@ -33,6 +34,10 @@
   font-size: 36px;
   font-family: var(--text-font);
   padding-top: 1rem;
+}
+.kami {
+  position: relative;
+  z-index: 100;
 }
 .kami:first-child {
   grid-area: kami1;
@@ -55,7 +60,14 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transform: scale(1.02);
 }
-
+.img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 180px;
+  height: auto;
+  mix-blend-mode: overlay;
+}
 /* 紀貫之
 
 .kinotomonori p:first-child {

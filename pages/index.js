@@ -1,16 +1,29 @@
-import React from "react";
-import Brush from "../components/Brush";
+import React, { useState, useContext } from "react";
 import KarutaConteiner from "../components/KarutaConteiner";
-import Tategaki from "../components/Tategaki"
+import List from "../components/List";
+import Searchform from "../components/Searchform";
+import Tanzaku from "../components/Tanzaku";
+import { ContextComponent } from "../libs/context";
+import SwitchingButton from "../components/SwitchingButton";
 
-const index = () => {
+const Home = () => {
+  const { index } = useContext(ContextComponent);
+  const contents = () => {
+    if (index === 1) {
+      return <KarutaConteiner />;
+    } else if (index === 2) {
+      return <Tanzaku />;
+    } else {
+      return <List />;
+    }
+  };
   return (
     <div>
-      <KarutaConteiner />
-      {/* <Tategaki /> */}
-      {/* <Brush/> */}
+      <Searchform />
+      <SwitchingButton />
+      {index === null ? <KarutaConteiner /> : contents()}
     </div>
   );
 };
 
-export default index;
+export default Home;

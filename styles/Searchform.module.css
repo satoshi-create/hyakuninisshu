@@ -1,0 +1,5 @@
+.searchValue {
+  display: flex;
+  place-content: center;
+  padding: 3rem 0;
+}

@@ -24,9 +24,28 @@
   --mokuji-size: calc(14px + (20 - 14) * ((100vh - 375px) / (1080 - 375)));
 }
 
+body {
+  background-color: #f9fbff;
+  font-family: var(--my-font);
+  line-height: 1.5;
+}
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.5;
+}
+ul {
+  list-style: none;
+}
 a {
   text-decoration: none;
   color: var(--clr-black);
+  cursor: pointer;
+}
+button {
+  background: transparent;
+  border-color: transparent;
   cursor: pointer;
 }
 .section-grid {
