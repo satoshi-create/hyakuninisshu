@@ -51,7 +51,7 @@
 .author {
   grid-area: author;
   align-self: center;
-  font-size: 36px;
+  font-size: 28px;
   font-family: var(--title-font);
   writing-mode: vertical-rl;
 }

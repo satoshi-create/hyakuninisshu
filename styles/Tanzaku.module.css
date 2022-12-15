@@ -1,0 +1,60 @@
+.conteiner {
+  /* display: grid;
+  grid-template-columns: repeat(4, minmax(172px, 1fr)); */
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+
+.tanzaku {
+  background-color: antiquewhite;
+  width: 172px;
+  height: 608px;
+  transition: var(--transition);
+  border: 10px solid var(--clr-green-01);
+  box-shadow: var(--shadow);
+  display: grid;
+  cursor: pointer;
+  position: relative;
+  padding: 10px;
+}
+.tanzaku > p {
+  writing-mode: vertical-lr;
+  font-size: 36px;
+  font-family: var(--text-font);
+}
+.kami:first-child {
+  grid-row: 1;
+  grid-column: 1;
+  place-self: center;
+}
+.kami:nth-child(2) {
+  grid-row: 2;
+  grid-column: 1;
+  place-self: flex-start;
+  margin-top: -5rem;
+}
+.kami:nth-child(3) {
+  grid-row: 3;
+  grid-column: 1;
+  place-self: flex-start;
+}
+.author {
+  font-size: 28px;
+  font-family: var(--title-font);
+  writing-mode: vertical-lr;
+  grid-row: 3;
+  grid-column: 1;
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+.img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 150px;
+  height: auto;
+  mix-blend-mode: overlay;
+}

@@ -1,16 +1,18 @@
 import React, { useState, useContext } from "react";
 import KarutaConteiner from "../components/KarutaConteiner";
-import List from "../components/List";
 import Searchform from "../components/Searchform";
+import SwitchingButton from "../components/SwitchingButton";
+import Karuta from "../components/Karuta";
+import List from "../components/List";
 import Tanzaku from "../components/Tanzaku";
 import { ContextComponent } from "../libs/context";
-import SwitchingButton from "../components/SwitchingButton";
 
 const Home = () => {
   const { index } = useContext(ContextComponent);
+
   const contents = () => {
     if (index === 1) {
-      return <KarutaConteiner />;
+      return <Karuta />;
     } else if (index === 2) {
       return <Tanzaku />;
     } else {
@@ -21,7 +23,9 @@ const Home = () => {
     <div>
       <Searchform />
       <SwitchingButton />
-      {index === null ? <KarutaConteiner /> : contents()}
+      <section className={`section-grid section-center`}>
+        {index === null ? <KarutaConteiner /> : contents()}
+      </section>
     </div>
   );
 };
