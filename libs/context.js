@@ -13,21 +13,7 @@ export const ContedtProvider = ({ children }) => {
   const [value, setValue] = useState("");
   const [data, setData] = useState(hyakuninisshu);
   const [index, setIndex] = useState(null);
-
-  // const fetchData = (q) => {
-  //   const filterdData = hyakuninisshu.filter((item) => {
-  //     const kamiString = item.kami.join("");
-  //     const simoString = item.simo.join("");
-  //     const kamisimoString = kamiString + simoString;
-  //     const poem = kamisimoString.includes(q);
-  //     const poemen = item.poemen.replace(/\s+/g, "").includes(q);
-  //     const author = item.author.includes(q);
-  //     const authoren = item.authoren.includes(q);
-  //     return author || authoren || poem || poemen;
-  //   });
-  //   console.log(filterdData);
-  //   setData(filterdData);
-  // };
+  const [sort, setSort] = useState("");
 
   const init = {
     data: data,
@@ -46,6 +32,13 @@ export const ContedtProvider = ({ children }) => {
     const el = e.target;
     dispatch({ type: "ATTRIBUTE_ITEMS", payload: el });
     setValue("");
+  };
+
+  const handleSort = (e) => {
+    const el = e.target.value;
+    console.log(el);
+    setSort(el);
+    dispatch({ type: "SORT_ITEMS", payload: el });
   };
 
   const fetchData = (q) => {
@@ -86,7 +79,55 @@ export const ContedtProvider = ({ children }) => {
       }
     }
     if (action.type === "RESET_CONTENT") {
-      return { ...state, data: data };
+      let tempData = data.sort((a, b) => {
+        return a.id - b.id;
+      });
+      return { ...state, data: tempData };
+    }
+    if (action.type === "SORT_ITEMS") {
+      switch (action.payload) {
+        case "ASC": {
+          let tempData = state.data.sort((a, b) => {
+            return a.id - b.id;
+          });
+          return { ...state, data: tempData };
+          break;
+        }
+        case "DEC": {
+          let tempData = state.data.sort((a, b) => {
+            return b.id - a.id;
+          });
+          return { ...state, data: tempData };
+          break;
+        }
+        case "AtoN": {
+          let tempData = state.data.sort((a, b) => {
+            return a.poemhira.localeCompare(b.poemhira, "ja");
+          });
+          return { ...state, data: tempData };
+          break;
+        }
+        case "NtoA": {
+          let tempData = state.data.sort((a, b) => {
+            return b.poemhira.localeCompare(a.poemhira, "ja");
+          });
+          return { ...state, data: tempData };
+          break;
+        }
+        default:
+          console.log("error");
+      }
+      // if (action.payload === "ASC") {
+      //   let tempData = state.data.sort((a, b) => {
+      //     return a.id - b.id;
+      //   });
+      //   return { ...state, data: tempData };
+      // } else if (action.payload === "DEC") {
+      //   let tempData = state.data.sort((a, b) => {
+      //     return b.id - a.id;
+      //   });
+      //   return { ...state, data: tempData };
+      // }
     }
   };
 
@@ -109,6 +150,7 @@ export const ContedtProvider = ({ children }) => {
         handleAttribute,
         state,
         resetContents,
+        handleSort,
       }}
     >
       {children}

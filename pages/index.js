@@ -6,6 +6,7 @@ import Karuta from "../components/Karuta";
 import List from "../components/List";
 import Tanzaku from "../components/Tanzaku";
 import { ContextComponent } from "../libs/context";
+import Sort from "../components/Sort";
 
 const Home = () => {
   const { index } = useContext(ContextComponent);
@@ -23,6 +24,7 @@ const Home = () => {
     <div>
       <Searchform />
       <SwitchingButton />
+      <Sort />
       <section className={`section-grid section-center`}>
         {/* <Karuta/> */}
         {index === null ? <Karuta /> : contents()}
