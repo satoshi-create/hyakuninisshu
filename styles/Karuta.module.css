@@ -7,45 +7,57 @@
 }
 
 .card {
-  background-color: antiquewhite;
   width: 254px;
   height: 354px;
-  /* height: calc(100vh / 2); */
-  /* width: calc(100vw - (5vw * 2)); */
-  transition: var(--transition);
-  /* background: var(--clr-green-01); */
-  border: 10px solid var(--clr-green-01);
   box-shadow: var(--shadow);
+  position: relative;
+  cursor: pointer;
+}
+.frontBack {
+  border: 10px solid var(--clr-green-01);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: var(--transition);
+  backface-visibility: hidden;
   display: grid;
   grid-template-areas:
     "kami3 kami2 kami1 head"
     "kami3 kami2 kami1 head"
     "kami3 kami2 kami1 author"
     "kami3 kami2 kami1 author";
-  /* grid-template-columns: repeat(6, 39px);
-  grid-template-rows: repeat(4, auto); */
-  /* background-color: var(--clr-accent-02); */
-  cursor: pointer;
-  position: relative;
 }
-
-.card > p {
+.card .front {
+  background-color: antiquewhite;
+}
+.card .back {
+  background-color: antiquewhite;
+  transform: rotateY(-180deg);
+}
+.front > p,
+.back > p {
   writing-mode: vertical-rl;
   font-size: 36px;
   font-family: var(--text-font);
   padding-top: 1rem;
 }
-.kami {
+.kami,
+.simo {
   position: relative;
   z-index: 100;
 }
-.kami:first-child {
+.kami:first-child,
+.simo:first-child {
   grid-area: kami1;
 }
-.kami:nth-child(2) {
+.kami:nth-child(2),
+.simo:nth-child(2) {
   grid-area: kami2;
 }
-.kami:nth-child(3) {
+.kami:nth-child(3),
+.simo:nth-child(3) {
   grid-area: kami3;
 }
 .author {
@@ -56,9 +68,15 @@
   writing-mode: vertical-rl;
 }
 
-.card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transform: scale(1.02);
+.flipped .front {
+  transform: rotateY(180deg);
+  /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02); */
+  /* transform: rotate3d(0, 1, 0, 180deg);
+  backface-visibility: visible; */
+}
+.flipped .back {
+  transform: rotateY(0);
 }
 .img {
   position: absolute;

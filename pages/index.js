@@ -24,7 +24,8 @@ const Home = () => {
       <Searchform />
       <SwitchingButton />
       <section className={`section-grid section-center`}>
-        {index === null ? <KarutaConteiner /> : contents()}
+        {/* <Karuta/> */}
+        {index === null ? <Karuta /> : contents()}
       </section>
     </div>
   );

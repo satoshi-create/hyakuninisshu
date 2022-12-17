@@ -4,9 +4,8 @@ import { ContextComponent } from "../libs/context";
 import allData from "../libs/data";
 
 const Searchform = () => {
-  const { value, setValue, data, setData } = useContext(ContextComponent);
+  const { value, setValue, handleAttribute, setData } = useContext(ContextComponent);
 
-  console.log(value);
   // const searchValue = useRef();
   // useEffect(() => {
   //   searchValue.current.focus();
@@ -17,19 +16,19 @@ const Searchform = () => {
     ...new Set(allData.map((item) => item.attribute)),
   ];
 
-  const handleAttribute = (e) => {
-    const el = e.target;
+  // const handleAttribute = (e) => {
+  //   const el = e.target;
 
-    if (el.dataset.id === "全て") {
-      setData(allData);
-    } else {
-      const attributeData = allData.filter(
-        (item) => item.attribute === el.dataset.id
-      );
-      setData(attributeData);
-    }
-    setValue("");
-  };
+  //   if (el.dataset.id === "全て") {
+  //     setData(allData);
+  //   } else {
+  //     const attributeData = allData.filter(
+  //       (item) => item.attribute === el.dataset.id
+  //     );
+  //     setData(attributeData);
+  //   }
+  //   setValue("");
+  // };
   return (
     <section className={`section-grid section-center`}>
       <form onSubmit={(e) => e.preventDefault()}>

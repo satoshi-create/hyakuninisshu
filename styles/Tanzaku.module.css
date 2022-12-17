@@ -1,60 +1,69 @@
-.conteiner {
-  /* display: grid;
-  grid-template-columns: repeat(4, minmax(172px, 1fr)); */
-  display: flex;
-  flex-direction: row-reverse;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 2rem;
+.conteinerTanzaku {
+  composes: conteiner from "./Karuta.module.css";
 }
 
 .tanzaku {
-  background-color: antiquewhite;
+  composes: card from "./Karuta.module.css";
   width: 172px;
   height: 608px;
-  transition: var(--transition);
-  border: 10px solid var(--clr-green-01);
-  box-shadow: var(--shadow);
-  display: grid;
-  cursor: pointer;
   position: relative;
-  padding: 10px;
 }
-.tanzaku > p {
+.frontBackTanzaku {
+  composes: frontBack from "./Karuta.module.css";
+  grid-template-areas: none;
+}
+.tanzaku .front {
+  background-color: antiquewhite;
+}
+.tanzaku .back {
+  background-color: antiquewhite;
+  transform: rotateY(-180deg);
+}
+.front > p,
+.back > p {
   writing-mode: vertical-lr;
   font-size: 36px;
   font-family: var(--text-font);
 }
-.kami:first-child {
+.tanzaku .front {
+  background-color: antiquewhite;
+}
+.tanzaku .back {
+  background-color: antiquewhite;
+  transform: rotateY(-180deg);
+}
+.kami:first-child,
+.simo:first-child {
   grid-row: 1;
   grid-column: 1;
   place-self: center;
 }
-.kami:nth-child(2) {
+.kami:nth-child(2),
+.simo:nth-child(2) {
   grid-row: 2;
   grid-column: 1;
   place-self: flex-start;
   margin-top: -5rem;
 }
-.kami:nth-child(3) {
+.kami:nth-child(3),
+.simo:nth-child(3) {
   grid-row: 3;
   grid-column: 1;
   place-self: flex-start;
 }
-.author {
-  font-size: 28px;
-  font-family: var(--title-font);
-  writing-mode: vertical-lr;
+.authorTanzaku {
+  composes: author from "./Karuta.module.css";
   grid-row: 3;
   grid-column: 1;
   align-self: flex-end;
   justify-self: flex-end;
 }
-.img {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 150px;
-  height: auto;
-  mix-blend-mode: overlay;
+.imgTanzaku {
+  composes: img from "./Karuta.module.css";
+}
+.flipped .front {
+  transform: rotateY(180deg);
+}
+.flipped .back {
+  transform: rotateY(0);
 }

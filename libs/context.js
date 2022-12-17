@@ -1,12 +1,47 @@
-import React, { useContext, useState, createContext, useEffect } from "react";
+import React, {
+  useContext,
+  useState,
+  createContext,
+  useEffect,
+  useReducer,
+} from "react";
 import hyakuninisshu from "../libs/data";
 
 export const ContextComponent = createContext();
 
 export const ContedtProvider = ({ children }) => {
   const [value, setValue] = useState("");
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(hyakuninisshu);
   const [index, setIndex] = useState(null);
+
+  // const fetchData = (q) => {
+  //   const filterdData = hyakuninisshu.filter((item) => {
+  //     const kamiString = item.kami.join("");
+  //     const simoString = item.simo.join("");
+  //     const kamisimoString = kamiString + simoString;
+  //     const poem = kamisimoString.includes(q);
+  //     const poemen = item.poemen.replace(/\s+/g, "").includes(q);
+  //     const author = item.author.includes(q);
+  //     const authoren = item.authoren.includes(q);
+  //     return author || authoren || poem || poemen;
+  //   });
+  //   console.log(filterdData);
+  //   setData(filterdData);
+  // };
+
+  const init = {
+    data: data,
+  };
+
+  const toggleContent = (id) => {
+    dispatch({ type: "TOGGLE_CONTENT", payload: id });
+  };
+
+  const handleAttribute = (e) => {
+    const el = e.target;
+    dispatch({ type: "ATTRIBUTE_ITEMS", payload: el });
+    setValue("");
+  };
 
   const fetchData = (q) => {
     const filterdData = hyakuninisshu.filter((item) => {
@@ -19,16 +54,53 @@ export const ContedtProvider = ({ children }) => {
       const authoren = item.authoren.includes(q);
       return author || authoren || poem || poemen;
     });
-    console.log(filterdData);
-    setData(filterdData);
+    dispatch({ type: "DISPLAY_ITEMS", payload: filterdData });
   };
+
+  const reducer = (state, action) => {
+    if (action.type === "TOGGLE_CONTENT") {
+      let tempData = state.data.map((item) => {
+        if (item.id === action.payload) {
+          return { ...item, bln: !item.bln };
+        }
+        return item;
+      });
+      return { data: tempData };
+    }
+    if (action.type === "DISPLAY_ITEMS") {
+      return { ...state, data: action.payload };
+    }
+    if (action.type === "ATTRIBUTE_ITEMS") {
+      if (action.payload.dataset.id === "全て") {
+        return { ...state, data: data };
+      } else {
+        let tempData = data.filter(
+          (item) => item.attribute === action.payload.dataset.id
+        );
+        return { ...state, data: tempData };
+      }
+    }
+  };
+
+  const [state, dispatch] = useReducer(reducer, init);
+
   useEffect(() => {
     fetchData(value);
   }, [value]);
 
   return (
     <ContextComponent.Provider
-      value={{ value, setValue, data, index, setIndex,setData }}
+      value={{
+        value,
+        setValue,
+        data,
+        index,
+        setIndex,
+        setData,
+        toggleContent,
+        handleAttribute,
+        state,
+      }}
     >
       {children}
     </ContextComponent.Provider>

@@ -25,6 +25,7 @@ const hyakuninisshu = [
     author: "天智天皇",
     attribute: "天皇",
     authoren: "tenchitennou",
+    bln: false,
   },
   {
     id: 2,
@@ -35,6 +36,7 @@ const hyakuninisshu = [
     author: "持統天皇",
     attribute: "天皇",
     authoren: "zitoutennou",
+    bln: false,
   },
   {
     id: 3,
@@ -45,6 +47,7 @@ const hyakuninisshu = [
     author: "柿本人麻呂",
     attribute: "宮廷歌人",
     authoren: "kakinomotonohitomaro",
+    bln: false,
   },
   {
     id: 4,
@@ -55,6 +58,7 @@ const hyakuninisshu = [
     author: "山部赤人",
     attribute: "宮廷歌人",
     authoren: "yamabenoakahito",
+    bln: false,
   },
   {
     id: 5,
@@ -65,6 +69,7 @@ const hyakuninisshu = [
     author: "猿丸太夫",
     attribute: "歌人",
     authoren: "cyuunagonyakamochi",
+    bln: false,
   },
   {
     id: 6,
@@ -75,6 +80,7 @@ const hyakuninisshu = [
     author: "中納言家持",
     attribute: "貴族",
     authoren: "cyuunagonyakamochi",
+    bln: false,
   },
   {
     id: 7,
@@ -85,6 +91,7 @@ const hyakuninisshu = [
     author: "安倍仲麿",
     attribute: "遣唐使",
     authoren: "abenonakamaro",
+    bln: false,
   },
   {
     id: 8,
@@ -95,6 +102,7 @@ const hyakuninisshu = [
     author: "喜撰法師",
     attribute: "僧侶",
     authoren: "kisenhoushi",
+    bln: false,
   },
   {
     id: 9,
@@ -105,6 +113,7 @@ const hyakuninisshu = [
       "hana no iro ha uturi ni keri nai tazu ra ni waga mi yo ni huru nagame se sima ni",
     attribute: "歌人",
     authoren: "ononokotmachi",
+    bln: false,
   },
   {
     id: 10,
@@ -115,6 +124,7 @@ const hyakuninisshu = [
     author: "蝉丸",
     attribute: "隠者",
     authoren: "semimaru",
+    bln: false,
   },
 ];
 
