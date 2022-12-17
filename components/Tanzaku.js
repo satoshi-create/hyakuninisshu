@@ -5,9 +5,9 @@ import { ContextComponent } from "../libs/context";
 import personImg from "../public/tenchitennou.png";
 
 const Tanzaku = () => {
-  // const [toggle, setToggle] = useState(false);
   const { toggleContent, state } = useContext(ContextComponent);
   console.log(state.data);
+
 
   if (state.data.length < 1) {
     return <h6>Sorry, no products matched your search</h6>;

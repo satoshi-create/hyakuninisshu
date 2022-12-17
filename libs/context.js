@@ -33,6 +33,11 @@ export const ContedtProvider = ({ children }) => {
     data: data,
   };
 
+  const resetContents = (i) => {
+    setIndex(i);
+    dispatch({ type: "RESET_CONTENT" });
+  };
+
   const toggleContent = (id) => {
     dispatch({ type: "TOGGLE_CONTENT", payload: id });
   };
@@ -80,6 +85,9 @@ export const ContedtProvider = ({ children }) => {
         return { ...state, data: tempData };
       }
     }
+    if (action.type === "RESET_CONTENT") {
+      return { ...state, data: data };
+    }
   };
 
   const [state, dispatch] = useReducer(reducer, init);
@@ -100,6 +108,7 @@ export const ContedtProvider = ({ children }) => {
         toggleContent,
         handleAttribute,
         state,
+        resetContents,
       }}
     >
       {children}

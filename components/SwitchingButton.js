@@ -3,18 +3,18 @@ import { ContextComponent } from "../libs/context";
 import styles from "../styles/SwitchingButton.module.css";
 import { List, Bookmark, Square } from "react-feather";
 const SwitchingButton = () => {
-  const { setIndex } = useContext(ContextComponent);
+  const { resetContents } = useContext(ContextComponent);
 
   return (
     <div className={`${styles.SwitchingButton} section-grid section-center`}>
       <div>
-        <button onClick={() => setIndex(1)}>
+        <button onClick={() => resetContents(1)}>
           <Square />
         </button>
-        <button onClick={() => setIndex(2)}>
+        <button onClick={() => resetContents(2)}>
           <Bookmark />
         </button>
-        <button onClick={() => setIndex(3)}>
+        <button onClick={() => resetContents(3)}>
           <List />
         </button>
       </div>

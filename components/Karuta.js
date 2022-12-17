@@ -6,17 +6,9 @@ import { ContextComponent } from "../libs/context";
 import personImg from "../public/tenchitennou.png";
 
 const Karuta = () => {
-  // const [toggle, setToggle] = useState(false);
-  // console.log(toggle);
+
   const { toggleContent, state } = useContext(ContextComponent);
 
-
-
-  // useEffect(() => {
-  //   if (state.data) {
-  //     dispatch({ type: "TOGGLECONTENT" });
-  //   }
-  // }, [state.data]);
 
   if (state.data.length < 1) {
     return <h6>Sorry, no products matched your search</h6>;
