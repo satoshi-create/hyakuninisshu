@@ -4,12 +4,11 @@ import hyakuninisshu from "../libs/data";
 import Image from "next/image";
 import { ContextComponent } from "../libs/context";
 import personImg from "../public/tenchitennou.png";
+import { eraColor } from "../libs/func";
 
 const Karuta = () => {
-  const { toggleContent, state } = useContext(ContextComponent);
+  const { toggleContent, state, toggleEraColor } = useContext(ContextComponent);
 
-  console.log(state);
-  
   if (state.data.length < 1) {
     return <h6>Sorry, no products matched your search</h6>;
   }
@@ -25,6 +24,7 @@ const Karuta = () => {
           karutaimg02,
           bln,
           id,
+          era,
         } = item;
         return (
           <div
@@ -34,7 +34,11 @@ const Karuta = () => {
             key={index}
             onClick={() => toggleContent(id)}
           >
-            <div className={` ${styles.frontBack} ${styles.front}`}>
+            <div
+              className={`${
+                toggleEraColor ? styles[`${eraColor(era)}`] : styles.color
+              } ${styles.frontBack} ${styles.front}`}
+            >
               {kami.map((item, index) => {
                 return (
                   <p key={index} className={styles.kami}>
@@ -44,7 +48,11 @@ const Karuta = () => {
               })}
               <h4 className={styles.author}>{author}</h4>
             </div>
-            <div className={` ${styles.frontBack} ${styles.back}`}>
+            <div
+              className={`${
+                toggleEraColor ? styles[`${eraColor(era)}`] : styles.color
+              } ${styles.frontBack} ${styles.back}`}
+            >
               {simo.map((item, index) => {
                 return (
                   <p key={index} className={styles.simo}>
@@ -53,14 +61,14 @@ const Karuta = () => {
                 );
               })}
               <h4 className={styles.author}>{author}</h4>
-              <figure className={`${styles[`${authoren}`]} ${styles.img}`}>
+              {/* <figure className={`${styles[`${authoren}`]} ${styles.img}`}>
                 <Image
                   src={personImg}
                   width={248}
                   height={180}
                   alt={authoren}
                 />
-              </figure>
+              </figure> */}
             </div>
           </div>
         );

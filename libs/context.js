@@ -13,8 +13,8 @@ export const ContedtProvider = ({ children }) => {
   const [value, setValue] = useState("");
   const [data, setData] = useState(hyakuninisshu);
   const [index, setIndex] = useState(null);
-  const [sort, setSort] = useState("");
-
+  const [toggleEraColor, setToggleEracolor] = useState(false);
+  console.log(toggleEraColor);
   const init = {
     data: data,
   };
@@ -37,7 +37,6 @@ export const ContedtProvider = ({ children }) => {
   const handleSort = (e) => {
     const el = e.target.value;
     console.log(el);
-    setSort(el);
     dispatch({ type: "SORT_ITEMS", payload: el });
   };
 
@@ -151,6 +150,8 @@ export const ContedtProvider = ({ children }) => {
         state,
         resetContents,
         handleSort,
+        toggleEraColor,
+        setToggleEracolor,
       }}
     >
       {children}

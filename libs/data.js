@@ -25,6 +25,7 @@ const hyakuninisshu = [
       "あきのたのかりほのいほのとまをあらみわがころもてはつゆにぬれつつ",
     poemen: "akinotanokarihonoihonotomawoaramiwagakoromotehatuyuninuretsutsu",
     author: "天智天皇",
+    era: "飛鳥",
     attribute: "天皇",
     authoren: "tenchitennou",
     bln: false,
@@ -33,11 +34,11 @@ const hyakuninisshu = [
     id: 2,
     kami: ["春過ぎて", "夏来にけらし", "白妙の"],
     simo: ["衣ほすてふ", "天の香具山"],
-    poemhira:
-      "はるすぎてなつきにけらししろたえのころもほすてふあまのかぐやま",
+    poemhira: "はるすぎてなつきにけらししろたえのころもほすてふあまのかぐやま",
     poemen:
       "haru su gi te natu kita ni ke rasi sirotae no koromo hosu te hu ten no kaguyama",
     author: "持統天皇",
+    era: "飛鳥",
     attribute: "天皇",
     authoren: "zitoutennou",
     bln: false,
@@ -46,12 +47,12 @@ const hyakuninisshu = [
     id: 3,
     kami: ["あしひきの", "山どりの尾の", "しだり尾の"],
     simo: ["ながながし夜を", "ひとりかもねむ"],
-    poemhira:
-      "あしひきのやまどりのおのしだりおのながながしよをひとりかもねむ",
+    poemhira: "あしひきのやまどりのおのしだりおのながながしよをひとりかもねむ",
     poemen:
       "asi hiki no yama dori no o no si dari o no naganaga si yoru wo hitori kamo nemu",
     author: "柿本人麻呂",
     attribute: "宮廷歌人",
+    era: "飛鳥",
     authoren: "kakinomotonohitomaro",
     bln: false,
   },
@@ -65,6 +66,7 @@ const hyakuninisshu = [
       " tago no ura ni utiide te mi re ba sirotae no huzi no takane ni yuki ha huri tutu",
     author: "山部赤人",
     attribute: "宮廷歌人",
+    era: "奈良",
     authoren: "yamabenoakahito",
     bln: false,
   },
@@ -72,12 +74,12 @@ const hyakuninisshu = [
     id: 5,
     kami: ["おくやまに", "紅葉踏み分け", "鳴く鹿の"],
     simo: ["声きくときぞ", "あきは悲しき"],
-    poemhira:
-      "おくやまにもみじふみわけなくしかのこえきくときぞあきはかなしき",
+    poemhira: "おくやまにもみじふみわけなくしかのこえきくときぞあきはかなしき",
     poemen:
       "okuyama ni kouyou hu mi wa ke na ku sika no koe kiku toki zo aki ha kana siki",
     author: "猿丸太夫",
     attribute: "歌人",
+    era: "奈良",  //不明
     authoren: "cyuunagonyakamochi",
     bln: false,
   },
@@ -85,12 +87,12 @@ const hyakuninisshu = [
     id: 6,
     kami: ["かささぎの", "わたせる橋に", "おく霜の"],
     simo: ["白きを見れば", "夜ぞふけにける"],
-    poemhira:
-      "かささぎのわたせるはしにおくしものしろきをみればよぞふけにける",
+    poemhira: "かささぎのわたせるはしにおくしものしろきをみればよぞふけにける",
     poemen:
       "kasasagi no wata seru hasi ni oku simo no siro ki wo mi re ba yoru zo huke ni keru",
     author: "中納言家持",
     attribute: "貴族",
+    era: "奈良",
     authoren: "cyuunagonyakamochi",
     bln: false,
   },
@@ -98,12 +100,12 @@ const hyakuninisshu = [
     id: 7,
     kami: ["天の原", "ふりさけ見れば", "春日なる"],
     simo: ["三笠の山に", "出でし月かも"],
-    poemhira:
-      "あまのはらふりさけみればかすがなるみかさのやまにいでしつきかも",
+    poemhira: "あまのはらふりさけみればかすがなるみかさのやまにいでしつきかも",
     poemen:
       "ama no hara huri sake mi re ba syunzitu naru mikasa no yama ni i de si tuki kamo",
     author: "安倍仲麿",
     attribute: "遣唐使",
+    era: "奈良",
     authoren: "abenonakamaro",
     bln: false,
   },
@@ -111,12 +113,12 @@ const hyakuninisshu = [
     id: 8,
     kami: ["我が庵は", "都のたつみ", "しかぞすむ"],
     simo: ["世を宇治山と", "人はいふなり"],
-    poemhira:
-      "わがいほはみやこのたつみしかぞすむよをうぢやまとひとはいふなり",
+    poemhira: "わがいほはみやこのたつみしかぞすむよをうぢやまとひとはいふなり",
     poemen:
       "wa ga iori ha to no tatumi sika zo sumu yo wo uziyama to hito haihu nari",
     author: "喜撰法師",
     attribute: "僧侶",
+    era: "平安",
     authoren: "kisenhoushi",
     bln: false,
   },
@@ -130,6 +132,7 @@ const hyakuninisshu = [
     poemen:
       "hana no iro ha uturi ni keri nai tazu ra ni waga mi yo ni huru nagame se sima ni",
     attribute: "歌人",
+    era:"平安",
     authoren: "ononokotmachi",
     bln: false,
   },
@@ -137,12 +140,12 @@ const hyakuninisshu = [
     id: 10,
     kami: ["これやこの", "行くも帰るも", "別れては"],
     simo: ["知るも知らぬも", "逢坂の関"],
-    poemhira:
-      "これやこのいくもかえるもわかれてはしるもしらぬもあふさかのせき",
+    poemhira: "これやこのいくもかえるもわかれてはしるもしらぬもあふさかのせき",
     poemen:
       "kore ya kono i ku mo kae ru mo waka re te ha si ru mo si ra nu mo ousaka no seki",
     author: "蝉丸",
     attribute: "隠者",
+    era:"平安",
     authoren: "semimaru",
     bln: false,
   },

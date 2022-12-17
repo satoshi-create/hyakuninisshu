@@ -13,10 +13,8 @@
   grid-template-areas: none;
 }
 .tanzaku .front {
-  background-color: antiquewhite;
 }
 .tanzaku .back {
-  background-color: antiquewhite;
   transform: rotateY(-180deg);
 }
 .front > p,
@@ -26,10 +24,8 @@
   font-family: var(--text-font);
 }
 .tanzaku .front {
-  background-color: antiquewhite;
 }
 .tanzaku .back {
-  background-color: antiquewhite;
   transform: rotateY(-180deg);
 }
 .kami:first-child,
@@ -66,4 +62,22 @@
 }
 .flipped .back {
   transform: rotateY(0);
+}
+.color {
+  background-color: antiquewhite;
+}
+.darkseagreen {
+  background-color: darkseagreen;
+}
+.blue {
+  background-color: blue;
+}
+.pink {
+  background-color: pink;
+}
+.darkgreen {
+  background-color: darkgreen;
+}
+.brown {
+  background-color: brown;
 }

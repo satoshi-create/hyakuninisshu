@@ -3,11 +3,11 @@ import styles from "../styles/Tanzaku.module.css";
 import Image from "next/image";
 import { ContextComponent } from "../libs/context";
 import personImg from "../public/tenchitennou.png";
+import { eraColor } from "../libs/func";
 
 const Tanzaku = () => {
-  const { toggleContent, state } = useContext(ContextComponent);
+  const { toggleContent, state, toggleEraColor } = useContext(ContextComponent);
   console.log(state.data);
-
 
   if (state.data.length < 1) {
     return <h6>Sorry, no products matched your search</h6>;
@@ -24,6 +24,7 @@ const Tanzaku = () => {
           karutaimg02,
           bln,
           id,
+          era,
         } = item;
         return (
           <div
@@ -33,7 +34,11 @@ const Tanzaku = () => {
             key={index}
             onClick={() => toggleContent(id)}
           >
-            <div className={` ${styles.frontBackTanzaku} ${styles.front}`}>
+            <div
+              className={`${
+                toggleEraColor ? styles[`${eraColor(era)}`] : styles.color
+              } ${styles.frontBackTanzaku} ${styles.front}`}
+            >
               {kami.map((item, index) => {
                 return (
                   <p key={index} className={styles.kami}>
@@ -43,7 +48,11 @@ const Tanzaku = () => {
               })}
               <h4 className={styles.authorTanzaku}>{author}</h4>
             </div>
-            <div className={` ${styles.frontBackTanzaku} ${styles.back}`}>
+            <div
+              className={`${
+                toggleEraColor ? styles[`${eraColor(era)}`] : styles.color
+              } ${styles.frontBackTanzaku} ${styles.back}`}
+            >
               {simo.map((item, index) => {
                 return (
                   <p key={index} className={styles.simo}>
@@ -52,10 +61,17 @@ const Tanzaku = () => {
                 );
               })}
               <h4 className={styles.authorTanzaku}>{author}</h4>
+              {/* <figure
+                className={`${styles[`${authoren}`]} ${styles.imgTanzaku}`}
+              >
+                <Image
+                  src={personImg}
+                  width={248}
+                  height={180}
+                  alt={authoren}
+                />
+              </figure> */}
             </div>
-            <figure className={`${styles[`${authoren}`]} ${styles.imgTanzaku}`}>
-              <Image src={personImg} width={248} height={180} alt={authoren} />
-            </figure>
           </div>
         );
       })}
