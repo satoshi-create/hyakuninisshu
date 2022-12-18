@@ -60,3 +60,8 @@ button {
 .section-center {
   place-items: center;
 }
+.center {
+  display: flex;
+  justify-content: center;
+  column-gap: .5rem;
+}

@@ -6,7 +6,7 @@ const EraColor = () => {
   const { toggleEraColor, setToggleEracolor } = useContext(ContextComponent);
 
   return (
-    <div className={`${styles.era} section-grid section-center`}>
+    <div className={styles.era}>
       <button
         className="btn"
         onClick={() => setToggleEracolor(!toggleEraColor)}

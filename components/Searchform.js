@@ -4,7 +4,8 @@ import { ContextComponent } from "../libs/context";
 import allData from "../libs/data";
 
 const Searchform = () => {
-  const { value, setValue, handleAttribute, setData } = useContext(ContextComponent);
+  const { value, setValue, handleAttribute, setData } =
+    useContext(ContextComponent);
 
   // const searchValue = useRef();
   // useEffect(() => {
@@ -14,7 +15,10 @@ const Searchform = () => {
   const setAttribute = [
     "全て",
     ...new Set(allData.map((item) => item.attribute)),
-  ];
+  ]
+
+  const newArr = setAttribute.concat();
+  console.log(newArr);
 
   // const handleAttribute = (e) => {
   //   const el = e.target;

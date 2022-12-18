@@ -40,6 +40,10 @@ export const ContedtProvider = ({ children }) => {
     dispatch({ type: "SORT_ITEMS", payload: el });
   };
 
+  const handleShuffle = () => {
+    dispatch({ type: "SHUFFLE_ITEMS" });
+  };
+
   const fetchData = (q) => {
     const filterdData = hyakuninisshu.filter((item) => {
       const kamiString = item.kami.join("");
@@ -116,17 +120,20 @@ export const ContedtProvider = ({ children }) => {
         default:
           console.log("error");
       }
-      // if (action.payload === "ASC") {
-      //   let tempData = state.data.sort((a, b) => {
-      //     return a.id - b.id;
-      //   });
-      //   return { ...state, data: tempData };
-      // } else if (action.payload === "DEC") {
-      //   let tempData = state.data.sort((a, b) => {
-      //     return b.id - a.id;
-      //   });
-      //   return { ...state, data: tempData };
-      // }
+    }
+    if (action.type === "SHUFFLE_ITEMS") {
+      const shuffleArray = (sourceArr) => {
+        const newData = sourceArr.concat();
+        for (let i = sourceArr.length - 1; i >= 0; i--) {
+          const randomIndex = Math.floor(Math.random() * (i + 1));
+          [sourceArr[i], sourceArr[randomIndex]] = [
+            sourceArr[randomIndex],
+            sourceArr[i],
+          ];
+        }
+        return newData;
+      };
+      return { ...state, data: shuffleArray(state.data) };
     }
   };
 
@@ -152,6 +159,7 @@ export const ContedtProvider = ({ children }) => {
         handleSort,
         toggleEraColor,
         setToggleEracolor,
+        handleShuffle,
       }}
     >
       {children}

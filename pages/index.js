@@ -8,6 +8,7 @@ import Tanzaku from "../components/Tanzaku";
 import { ContextComponent } from "../libs/context";
 import Sort from "../components/Sort";
 import EraColor from "../components/EraColor";
+import Shuffle from "../components/Shuffle";
 
 const Home = () => {
   const { index } = useContext(ContextComponent);
@@ -25,8 +26,11 @@ const Home = () => {
     <div>
       <Searchform />
       <SwitchingButton />
-      <Sort />
-      <EraColor />
+      <div className="center">
+        <Sort />
+        <EraColor />
+        <Shuffle />
+      </div>
       <section className={`section-grid section-center`}>
         {/* <Karuta/> */}
         {index === null ? <Karuta /> : contents()}

@@ -6,7 +6,7 @@ const Sort = () => {
   const { handleSort } = useContext(ContextComponent);
 
   return (
-    <div className={`${styles.sort} section-grid section-center`}>
+    <div className={styles.sort}>
       <select name="sort" onChange={(e) => handleSort(e)}>
         {/* <option value="ASC">選択してください</option> */}
         <option value="ASC" selected>
