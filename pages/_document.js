@@ -5,8 +5,12 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link
+          {/* <link
             href="https://fonts.googleapis.com/css2?family=Inter&display=optional"
+            rel="stylesheet"
+          /> */}
+          <link
+            href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&family=Zen+Kurenaido&display=swap"
             rel="stylesheet"
           />
         </Head>
