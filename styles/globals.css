@@ -16,6 +16,8 @@
   --text-size: calc(16px + (35 - 16) * ((100vh - 375px) / (1080 - 375)));
   --title-size: calc(20px + (35 - 20) * ((100vh - 375px) / (1080 - 375)));
   --mokuji-size: calc(14px + (20 - 14) * ((100vh - 375px) / (1080 - 375)));
+  --my-font: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN",
+    "Hiragino Mincho Pro", HGS明朝E, メイリオ, Meiryo, serif;
   --title-font: "Kaisei Decol", serif;
   --text-font: "Zen Kurenaido", sans-serif;
   --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -63,5 +65,5 @@ button {
 .center {
   display: flex;
   justify-content: center;
-  column-gap: .5rem;
+  column-gap: 0.5rem;
 }
