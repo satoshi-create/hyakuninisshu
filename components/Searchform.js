@@ -1,38 +1,17 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import styles from "../styles/Searchform.module.css";
 import { ContextComponent } from "../libs/context";
-import allData from "../libs/data";
+import hyakuninisshu from "../libs/data";
 
 const Searchform = () => {
-  const { value, setValue, handleAttribute, setData } =
+  const { value, setValue, handleAttribute, setData, newArr } =
     useContext(ContextComponent);
-
-  // const searchValue = useRef();
-  // useEffect(() => {
-  //   searchValue.current.focus();
-  // }, []);
 
   const setAttribute = [
     "全て",
-    ...new Set(allData.map((item) => item.attribute)),
-  ]
+    ...new Set(hyakuninisshu.map((item) => item.attribute)),
+  ];
 
-  const newArr = setAttribute.concat();
-  console.log(newArr);
-
-  // const handleAttribute = (e) => {
-  //   const el = e.target;
-
-  //   if (el.dataset.id === "全て") {
-  //     setData(allData);
-  //   } else {
-  //     const attributeData = allData.filter(
-  //       (item) => item.attribute === el.dataset.id
-  //     );
-  //     setData(attributeData);
-  //   }
-  //   setValue("");
-  // };
   return (
     <section className={`section-grid section-center`}>
       <form onSubmit={(e) => e.preventDefault()}>

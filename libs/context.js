@@ -6,22 +6,30 @@ import React, {
   useReducer,
 } from "react";
 import hyakuninisshu from "../libs/data";
+import _ from "lodash";
 
 export const ContextComponent = createContext();
 
 export const ContedtProvider = ({ children }) => {
+  // const clonedData = Array.from(hyakuninisshu);
+  // const clonedData = JSON.parse(JSON.stringify(original));
+  // console.log(JSON.parse(JSON.stringify(hyakuninisshu)));
+  // console.log(_.cloneDeep(hyakuninisshu));
+
+  const newHyakuninisshu = _.cloneDeep(hyakuninisshu);
+
   const [value, setValue] = useState("");
-  const [data, setData] = useState(hyakuninisshu);
+  const [data, setData] = useState(newHyakuninisshu);
   const [index, setIndex] = useState(null);
   const [toggleEraColor, setToggleEracolor] = useState(false);
-  console.log(toggleEraColor);
+
   const init = {
     data: data,
   };
 
   const resetContents = (i) => {
     setIndex(i);
-    dispatch({ type: "RESET_CONTENT" });
+    dispatch({ type: "RESET_CONTENT", payload: data });
   };
 
   const toggleContent = (id) => {
@@ -160,6 +168,7 @@ export const ContedtProvider = ({ children }) => {
         toggleEraColor,
         setToggleEracolor,
         handleShuffle,
+        // newArr,
       }}
     >
       {children}
