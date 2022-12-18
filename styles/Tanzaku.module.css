@@ -4,16 +4,16 @@
 
 .tanzaku {
   composes: card from "./Karuta.module.css";
-  width: 172px;
+  width: 122px;
   height: 608px;
   position: relative;
 }
 .frontBackTanzaku {
   composes: frontBack from "./Karuta.module.css";
   grid-template-areas: none;
+  padding: 0.5rem 0;
 }
-.tanzaku .front {
-}
+
 .tanzaku .back {
   transform: rotateY(-180deg);
 }
@@ -23,8 +23,7 @@
   font-size: 36px;
   font-family: var(--text-font);
 }
-.tanzaku .front {
-}
+
 .tanzaku .back {
   transform: rotateY(-180deg);
 }
@@ -32,13 +31,13 @@
 .simo:first-child {
   grid-row: 1;
   grid-column: 1;
-  place-self: center;
+  justify-self: flex-end;
 }
 .kami:nth-child(2),
 .simo:nth-child(2) {
   grid-row: 2;
   grid-column: 1;
-  place-self: flex-start;
+  justify-self: flex-start;
   margin-top: -5rem;
 }
 .kami:nth-child(3),

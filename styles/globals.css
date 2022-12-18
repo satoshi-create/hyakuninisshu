@@ -19,6 +19,7 @@
   --my-font: 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN",
     "Hiragino Mincho Pro", HGS明朝E, メイリオ, Meiryo, serif;
   --title-font: "Kaisei Decol", serif;
+  --author-font:'Noto Sans JP', sans-serif;
   --text-font: "Zen Kurenaido", sans-serif;
   --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   --shadowR: -10px 15px 10px rgba(0, 0, 0, 0.2);
