@@ -73,7 +73,7 @@
   font-family: var(--text-font);
   writing-mode: vertical-rl;
   font-weight: 400;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
 }
 
 .flipped .front {
@@ -111,4 +111,17 @@
 }
 .brown {
   background-color: brown;
+}
+.btn {
+  grid-area: kami3;
+  align-self: flex-end;
+  z-index: 100;
+  font-size: 1.5rem;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 2rem;
+  width: 4rem;
+  transition: var(--transition);
+}
+.btn:hover {
+  opacity: 0.6;
 }
