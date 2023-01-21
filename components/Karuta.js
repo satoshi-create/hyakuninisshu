@@ -8,10 +8,18 @@ import { eraColor } from "../libs/func";
 import Modal from "./Modal";
 
 const Karuta = () => {
-  const { toggleContent, state, toggleEraColor, modalId, setModalId } =
-    useContext(ContextComponent);
-
-
+  const {
+    toggleContent,
+    state,
+    toggleEraColor,
+    openModal,
+    isModalOpen,
+    modalId,
+  } = useContext(ContextComponent);
+  console.log({
+    modalId,
+    isModalOpen,
+  });
   if (state.data.length < 1) {
     return <h6>Sorry, no products matched your search</h6>;
   }
@@ -66,11 +74,11 @@ const Karuta = () => {
               <h4 className={styles.author}>{author}</h4>
               <button
                 className={`btn ${styles.btn}`}
-                onClick={() => setModalId(id)}
+                onClick={(e) => openModal(id,e)}
               >
                 More
               </button>
-              <Modal />
+              {isModalOpen && <Modal />}
             </div>
           </div>
         );

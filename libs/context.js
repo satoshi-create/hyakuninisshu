@@ -22,12 +22,13 @@ export const ContedtProvider = ({ children }) => {
   const [data, setData] = useState(newHyakuninisshu);
   const [index, setIndex] = useState(null);
   const [toggleEraColor, setToggleEracolor] = useState(false);
-  const [modalId, setModalId] = useState("");
+  const [modalId, setModalId] = useState();
   const [isModalOpen, setisModalOpen] = useState(false);
 
-  const openModal = (id) => {
-    setisModalOpen(true);
-    setValue(id);
+  const openModal = (id,e) => {
+     e.stopPropagation()
+    setisModalOpen(!isModalOpen);
+    setModalId(id);
   };
 
   const init = {
@@ -177,6 +178,8 @@ export const ContedtProvider = ({ children }) => {
         handleShuffle,
         // newArr,
         openModal,
+        isModalOpen,
+        modalId
       }}
     >
       {children}
