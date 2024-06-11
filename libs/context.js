@@ -18,7 +18,7 @@ export const ContedtProvider = ({ children }) => {
 
   const newHyakuninisshu = _.cloneDeep(hyakuninisshu);
 
-  const [value, setValue] = useState("");
+  const [kamiword, setKamiword] = useState("");
   const [data, setData] = useState(newHyakuninisshu);
   const [index, setIndex] = useState(null);
   const [toggleEraColor, setToggleEracolor] = useState(false);
@@ -63,9 +63,9 @@ export const ContedtProvider = ({ children }) => {
   const fetchData = (q) => {
     const filterdData = hyakuninisshu.filter((item) => {
       const kamiString = item.kami.join("");
-      const simoString = item.simo.join("");
-      const kamisimoString = kamiString + simoString;
-      const poem = kamisimoString.includes(q);
+      // const simoString = item.simo.join("");
+      // const kamisimoString = kamiString + simoString;
+      const poem = kamiString.includes(q);
       const poemen = item.poemen.replace(/\s+/g, "").includes(q);
       const author = item.author.includes(q);
       const authoren = item.authoren.includes(q);
@@ -156,14 +156,14 @@ export const ContedtProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, init);
 
   useEffect(() => {
-    fetchData(value);
-  }, [value]);
+    fetchData(kamiword);
+  }, [kamiword]);
 
   return (
     <ContextComponent.Provider
       value={{
-        value,
-        setValue,
+        kamiword,
+        setKamiword,
         data,
         index,
         setIndex,

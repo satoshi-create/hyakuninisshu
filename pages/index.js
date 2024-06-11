@@ -9,6 +9,7 @@ import { ContextComponent } from "../libs/context";
 import Sort from "../components/Sort";
 import EraColor from "../components/EraColor";
 import Shuffle from "../components/Shuffle";
+import AttributeButton from "../components/AttributeButton";
 
 const Home = () => {
   const { index } = useContext(ContextComponent);
@@ -25,6 +26,7 @@ const Home = () => {
   return (
     <div>
       <Searchform />
+      <AttributeButton/>
       <SwitchingButton />
       <div className="center">
         <Sort />

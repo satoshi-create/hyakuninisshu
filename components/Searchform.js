@@ -4,13 +4,8 @@ import { ContextComponent } from "../libs/context";
 import hyakuninisshu from "../libs/data";
 
 const Searchform = () => {
-  const { value, setValue, handleAttribute, setData, newArr } =
+  const { kamiword, setKamiword, handleAttribute, setData, newArr } =
     useContext(ContextComponent);
-
-  const setAttribute = [
-    "全て",
-    ...new Set(hyakuninisshu.map((item) => item.attribute)),
-  ];
 
   return (
     <section className={`section-grid section-center`}>
@@ -18,27 +13,13 @@ const Searchform = () => {
         <input
           type="text"
           name="name"
-          placeholder="input value"
+          placeholder="上の句を入力してください"
           id="name"
           // ref={searchValue}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          value={kamiword}
+          onChange={(e) => setKamiword(e.target.value)}
         />
       </form>
-      <div>
-        {setAttribute.map((item, i) => {
-          return (
-            <button
-              key={i}
-              onClick={(e) => handleAttribute(e)}
-              data-id={item}
-              className={`btn ${styles.attributeBtn}`}
-            >
-              {item}
-            </button>
-          );
-        })}
-      </div>
     </section>
   );
 };
