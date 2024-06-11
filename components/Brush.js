@@ -5,6 +5,7 @@ import Image from "next/image";
 
 const Brush = () => {
   return (
+    
     <section className="section-grid">
       <div className={styles.conteiner}>
         {hyakuninisshu.map((item, index) => {
